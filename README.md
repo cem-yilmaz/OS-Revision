@@ -18,3 +18,5 @@ Of course who am I to limit how you revise? Do with these files what you will. Y
 # Other points of note
 - If you see text iwith ban "i" or a "b" weirdly inserted in front of them, it's likely the text was meant to be *italic* or **bold** and I forgot to press `CTRL`.
 - Anything in ampersands like this %% is a comment. I don't know if GitHub shows these or if they appear in the PDF. If they are hidden then oh boy bucko you've found a secret. Anyway I need to close this off to let the others know what a comment is. %% \%\% text \%\% is a comment
+- Check the commit date of the PDF and compare it to that of the main `.md` document, as there may be changes not yet reflected in it
+	- *yes I know I should've just used $\LaTeX$ shut up*
