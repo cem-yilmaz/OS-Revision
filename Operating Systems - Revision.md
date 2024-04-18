@@ -841,6 +841,16 @@ Deadlocks can occur when two processes are waiting indefinitely for an event whi
 
 A practical example of this occurring in an OS is when a process of high priority needs to access kernel data being accessed by a low priority process, which depends on the high priority process too. Kernel data is lock protected, which causes a deadlock.
 This is typically solved with a *priority-inheritance protocol*; all processes accessing resources needed by a higher priority protocol *inherit* this priority *until they are finished with the resources*.
+### Conditions for a Deadlock
+A deadlock situation can arise if the following four conditions *simultaneously hold* in a system. Conversely, a system *is **safe** (from deadlocks)* if these are not *all held*. 
+- **Mutual Exclusion**
+	- At least one resource must be held in a non-shareable mode (only one thread at a time can use the resource). If a thread requests the resource it must wait *until it is released*.
+- **Hold and Wait**
+	- A thread must be holding at least one resource and waiting to acquire additional resources *currently held* by other threads.
+- **No preemption**
+	- A resource can only be released *voluntarily **by the thread holding** it* (after that thread has completed its task)
+- **Circular wait**
+	- A set $\{T_{0}, T_{1}, \dots, T_{n}\}$ of waiting threads must exist so $T_{0}$ is waiting on $T_{1}$, $T_{1}$ waiting on $T_{2}$, $\dots$, and finally $T_{n}$ is waiting on $T_{0}$
 # Virtual Machines
 *Virtualisation* %% I am NOT spelling it with a "z" %% is the process of making a *virtual* version of a *physical* object. A *virtual machine* is a *virtualised* computer running inside of a physical computer.
 
