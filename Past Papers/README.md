@@ -1,0 +1,3 @@
+There will be less usefulness in this folder. Recall that this `git` repository is literally just synced to my personal notes, so this is structured to better help myself.
+
+That being said, for each paper I will attempt all questions. If I genuinely can't remember a thing, I'll consult the [[Operating Systems - Revision]] document, the textbook, [BetterInformatics solutions](https://files.betterinformatics.com/category/operatingsystems), and (*this will be explicitly noted*) ChatGPT if things really turn dire.

@@ -217,15 +217,6 @@ classDiagram
 ## Multi-programming
 The fact that users typically *want* to run more than one program at a time, and that it would be inefficient to leave the CPU or I/O devices idle for long periods of time. The OS achieves this with **multi-programming**. It keeps multiple programs being executed (*processes*) in memory at once, and then picks one of these processes to execute. If this active process has to wait (e.g. for an I/O [[#Devices|device]]), then the CPU *switches to another process* while it waits, returning once done.
 **Multitasking** is an extension of multi-programming where this switching happens so fast a user is led to believe the programs are executing in parallel.
-## Resource manangement
-Delete me if all of 
-- process management
-- memory management
-- filesystem management
-- mass storage management
-- cache management
-- io management
-are covered. If not, expand the brief in this section.
 # Privileges
 The OS's [[#The Kernel|kernel]] also provides security and abstraction benefits. It allows application program developers to avoid worrying about how to interact with the hardware, instead making them focus on how to interact with the *kernel* instead. This also acts as a security against malicious code, as the kernel checks how applications make requests for hardware resources.
 An architecture that wishes to support privileges must support *atleast two modes*: ***kernel*** mode and ***user*** mode. For example, the `x86` architecture supports 4 protection modes.
