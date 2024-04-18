@@ -862,6 +862,15 @@ A *virtual CPU* inside a VM does not execute code; it represents the state of th
 #### VMs executing [[#Privileges|privileged]] instructions
 When a guest OS kernel attempts to execute a privileged instruction, this causes a *trap* in the VMM. The VMM then "*emulates*" the action that was attempted by the guest OS on the *real* kernel. This process is known as *trap and emulate*.
 ![[Trap and Emulate.png]]
+
+Another approach is *binary translation*. This is used when *trap-and-emulate* is infeasible - for example, in CPUs without a clear separation of [[#Privileges|privileged and nonprivileged]] instructions. *Special instructions* are instructions which *act differently* (**by ignoring certain flags**) *when in user mode vs kernel mode*, which means the *trap* in *trap and emulate* won't ever trigger.
+
+Binary translation follows a simple procedure:
+1. If the *guest [[#VCPU]]* is in *user mode* the guest can run its instructions natively on the *physical CPU*.
+2. If the *guest VCPU* is in *kernel mode*, the guest believes it is running in kernel mode. Now, the VMM examines every instruction and reads ahead for the next few instructions the guest will execute (based on the guest's program counter). If we spot any special instructions, we translate them into *new instruction that would perform the equivalent task* (such as changing flags in the VCPU).
+
+These translated instructions are *cached* to improve performance.
+![[Binary Translation.png]]
 ### Nested [[#Page Table Structures|Page Tables]]
 VMMs need to monitor all page tables for guests **and *its own* page table**. A common method of performing this is using a *Nested Page Table* (NPT). When the CPU is executing a guest OS's instruction, the VMM points to the correct location in this NPT so the correct memory addresses can be accessed.
 ![[Nested Page Tables.png]]
