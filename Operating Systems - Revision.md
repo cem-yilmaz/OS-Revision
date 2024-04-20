@@ -530,7 +530,7 @@ Average response time can be poor as short tasks wait behind big ones (*convoy e
 ### Shortest Job First (SJF)
 We look at the **length of the CPU time** for a process and then schedule it based on *shortest CPU time first*. There are two variations of SJF:
 - [[#Non-preemptive]] - once the CPU is given to the process it **cannot** be taken away until completion
-- [[#Pre-emptive]] - if a new process arrives with CPU time **less than the current remaining time** of a current executing process, **pre-empt**
+- [[#Preemptive]] - if a new process arrives with CPU time **less than the current remaining time** of a current executing process, **pre-empt**
 	- This can only ever really be *approximated*, and isn't always possible
 ### Round-Robin (RR)
 Each process is given a specific time interval (*quantum*) to run in. After this time *has elapsed*, the process is pre-empted, added to the end of the ready queue, and the next process is scheduled. If a process **terminates or blocks for I/O** before this time it is added to the wait queue, and the next process is scheduled. 
