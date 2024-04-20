@@ -2,6 +2,8 @@ This folder contains my revision write-up for *Operating Systems*. This was main
 
 These notes won't be perfect; they're basically a way for me to revise by using the "summarise the content to let it stick in your brain". Nevertheless, if these notes help even one person then that's great.
 
+Additionally, if this is breaking some form of academic misconduct please contact me privately and I'll sort it - but I believe this all to be fair game, and am keeping it public for accessibility.
+
 If you want to open a pull request to change the notes (e.g. fix something wrong), then please only edit the `Operating Systems - Revision.md` file - I'll apply these knock-on changes to the PDF.
 # How to view these notes
 ## Obsidian *\[Recommended]*
