@@ -631,7 +631,7 @@ Accurately recording this takes **substantial hardware assistance** and can add 
 - keeping **page table entry bits** (maintained in *hardware*)
 - keeping a **history/counter for each page** (maintained in *software*)
 ### Second Chance Page Replacement
-A [[#FIFO Page Replacement]] variant that avoids the problem mentioned of *early added* but *commonly referenced* pages being swapped out by simply adding the concept of ***references** (usage)*. We now check the *reference bit* (and a *modify bit* in some implementations) before performing a FIFO operation. When checking the first page in the linked list:
+A [[#FIFO Page Replacement]] variant that avoids the problem mentioned of *early added* but *commonly referenced* pages being swapped out by simply adding the concept of **references** (usage)*. We now check the *reference bit* (and a *modify bit* in some implementations) before performing a FIFO operation. When checking the first page in the linked list:
 - If the bit *has **not** been referenced* it will be removed as usual
 - If the bit ***has** been referenced*, it is set to unreferenced (`0`) and placed *at the end (newest) if the FIFO list*
 This basically gives the first page a *second chance*, so if it was a one-off lucky reference, it will be swapped out the second time. However, if it genuinely gets used all the time, this avoids the overhead of swapping to backing store and then almost immediately swapping it back into the end of the list and into main memory
