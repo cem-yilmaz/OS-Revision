@@ -841,6 +841,17 @@ Deadlocks can occur when two processes are waiting indefinitely for an event whi
 
 A practical example of this occurring in an OS is when a process of high priority needs to access kernel data being accessed by a low priority process, which depends on the high priority process too. Kernel data is lock protected, which causes a deadlock.
 This is typically solved with a *priority-inheritance protocol*; all processes accessing resources needed by a higher priority protocol *inherit* this priority *until they are finished with the resources*.
+### Safety Algorithm
+We can prove if a system is in a safe state by using the following algorithm:
+1. Let $\text{Work}$ and $\text{Finish}$ be vectors of length $m$ and $n$ respectively. Initialise $\text{Work}=\text{Available}$ and $\text{Finish}[i] = \text{false}$ for$i=0, 1, \dots, n-1$.
+2. Find an index $i$ such that
+	- $\text{Finish}[i]==\text{false}$
+	- $\text{Need}_{i}\leq\text{Work}$
+		- *(If no such $i$ exists goto 6)*
+3. $\text{Work} = \text{Work + Allocation}$
+4. $\text{Finish}[i]=\text{true}$
+5. Goto 2
+6. If $\text{Finish}[i]==\text{true}$ for all $i$, *the system is in a **safe** state*.
 ### Conditions for a Deadlock
 A deadlock situation can arise if the following four conditions *simultaneously hold* in a system. Conversely, a system *is **safe** (from deadlocks)* if these are not *all held*. 
 - **Mutual Exclusion**
